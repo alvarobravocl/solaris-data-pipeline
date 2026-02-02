@@ -22,5 +22,4 @@ data/output/*
 Thumbs.db
 
 # --- IDEs ---
-.vscode/
 .idea/
