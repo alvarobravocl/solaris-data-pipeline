@@ -1,0 +1,26 @@
+# --- Seguridad ---
+.env
+.env.local
+
+# --- Python ---
+__pycache__/
+*.pyc
+venv/
+.pytest_cache/
+
+# --- Datos (Simulamos que son datos confidenciales de la empresa) ---
+# Ignoramos el contenido, pero mantenemos la estructura de carpetas
+data/input/*
+data/processed/*
+data/output/*
+!data/input/.gitkeep
+!data/processed/.gitkeep
+!data/output/.gitkeep
+
+# --- Sistema Operativo ---
+.DS_Store
+Thumbs.db
+
+# --- IDEs ---
+.vscode/
+.idea/
