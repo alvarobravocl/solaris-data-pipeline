@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS parks_master (
 
 -- Insertamos datos semilla (Mock Data) para que no esté vacía
 INSERT INTO parks_master (park_id, park_name, capacity_mw, city, region) VALUES
-('PARQUE_00', 'Sol del Desierto', 9.00, 'Calama', 'Antofagasta'),
+('PARQUE_01', 'Sol del Desierto', 9.00, 'Calama', 'Antofagasta'),
 ('PARQUE_02', 'Inti Raymi', 5.50, 'Copiapó', 'Atacama');
 
 
