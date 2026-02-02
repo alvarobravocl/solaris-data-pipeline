@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  # Servicio 1: La Base de Datos (PostgreSQL)
+  postgres_db:
+    image: postgres:15-alpine # Usamos una versión ligera (Alpine)
+    container_name: solaris_postgres
+    environment:
+      POSTGRES_USER: solaris_user
+      POSTGRES_PASSWORD: solaris_password
+      POSTGRES_DB: solaris_db
+    ports:
+      - "5432:5432" # Abre el puerto para que te conectes desde tu PC
+    volumes:
+      # Persistencia: Si apagas el contenedor, los datos NO se borran
+      - postgres_data:/var/lib/postgresql/data
+      # Inicialización: Ejecuta el script SQL al crearse por primera vez
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # Servicio 2: Tu Entorno Python (Donde corre el ETL)
+  etl_app:
+    build: .
+    container_name: solaris_etl
+    volumes:
+      - ./src:/app/src # Conecta tu código en vivo
+      - ./data:/app/data # Conecta las carpetas simuladas (Input/Output)
+    depends_on:
+      - postgres_db # Espera a que la DB arranque antes de iniciar
+    # El comando mantiene vivo el contenedor para que puedas entrar y ejecutar cosas
+    command: tail -f /dev/null
+
+volumes:
+  postgres_data:
