@@ -1,0 +1,6 @@
+pandas==2.0.3
+sqlalchemy==2.0.19
+psycopg2-binary==2.9.7
+openpyxl==3.1.2
+requests==2.31.0
+python-dotenv==1.0.0
