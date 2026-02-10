@@ -21,6 +21,8 @@ services:
   etl_app:
     build: .
     container_name: solaris_etl
+    env_file:
+      - .env
     volumes:
       - ./src:/app/src # Conecta tu código en vivo
       - ./data:/app/data # Conecta las carpetas simuladas (Input/Output)
